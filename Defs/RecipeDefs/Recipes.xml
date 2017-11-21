@@ -1,0 +1,575 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<RecipeDef Name="PrecursorBase" Abstract="True">
+		<workSpeedStat>BrewingSpeed</workSpeedStat>
+		<workSkill>Cooking</workSkill>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_Brewing</soundWorking>
+		<allowMixingIngredients>true</allowMixingIngredients>
+		<workAmount>1000</workAmount>
+		<targetCountAdjustment>5</targetCountAdjustment>
+		<recipeUsers>
+			<li>Brewery</li>
+		</recipeUsers>
+		<skillRequirements>
+			<Cooking>6</Cooking>
+		</skillRequirements>
+	</RecipeDef>
+
+	<RecipeDef Name="MakeCrateBase" Abstract="True">
+		<description>Store alcohol bottles in a crate for easier storage.</description>
+		<jobString>Crating alcohol</jobString>
+		<workSpeedStat>BrewingSpeed</workSpeedStat>
+		<workAmount>250</workAmount>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_Brewing</soundWorking>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>CPD_EmptyCrate</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>CPD_EmptyCrate</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<recipeUsers>
+			<li>CraftingSpot</li>
+		</recipeUsers>
+		<workSkill>Cooking</workSkill>
+	</RecipeDef>
+
+	<RecipeDef Name="UncrateBase" Abstract="True">
+		<description>Take all the alcohol bottles out of their storage crate.</description>
+		<jobString>Emptying crate</jobString>
+		<workSpeedStat>BrewingSpeed</workSpeedStat>
+		<workAmount>50</workAmount>
+		<effectWorking>Cook</effectWorking>
+		<soundWorking>Recipe_Brewing</soundWorking>
+		<targetCountAdjustment>75</targetCountAdjustment>
+		<recipeUsers>
+			<li>CraftingSpot</li>
+		</recipeUsers>
+		<workSkill>Cooking</workSkill>
+	</RecipeDef>
+
+	<!--======== Base Inheritors ========-->
+	<!-- ===== Alcohol ===== -->
+
+	<RecipeDef ParentName="PrecursorBase">
+		<defName>CPD_MakeStoutWort</defName>
+		<label>make stout wort</label>
+		<description>Make wort from roasted hops.</description>
+		<jobString>Making stout wort.</jobString>
+		<workAmount>1300</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>RawHops</li>
+					</thingDefs>
+				</filter>
+				<count>25</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>RawHops</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<CPD_StoutWort>5</CPD_StoutWort>
+		</products>
+	</RecipeDef>
+
+	<RecipeDef ParentName="PrecursorBase">
+		<defName>CPD_MakeCornWort</defName>
+		<label>make corn wort</label>
+		<description>Make wort from corn.</description>
+		<jobString>Making corn wort.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>RawCorn</li>
+					</thingDefs>
+				</filter>
+				<count>25</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>RawCorn</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<CPD_CornWort>5</CPD_CornWort>
+		</products>
+	</RecipeDef>
+
+	<RecipeDef ParentName="PrecursorBase">
+		<defName>CPD_MakeRiceMash</defName>
+		<label>make rice mash</label>
+		<description>Make rice mash for brewing nigori.</description>
+		<jobString>Making rice mash.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>RawRice</li>
+					</thingDefs>
+				</filter>
+				<count>25</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>RawRice</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<CPD_RiceMash>5</CPD_RiceMash>
+		</products>
+	</RecipeDef>
+
+	<RecipeDef ParentName="PrecursorBase">
+		<defName>CPD_DistillVodka</defName>
+		<label>distill vodka</label>
+		<description>Filter and distill vodka for drinking.</description>
+		<jobString>Distilling vodka.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>CPD_VodkaPrecursor</li>
+					</thingDefs>
+				</filter>
+				<count>25</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>CPD_VodkaPrecursor</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<CPD_Vodka>5</CPD_Vodka>
+		</products>
+	</RecipeDef>
+
+	<RecipeDef ParentName="PrecursorBase">
+		<defName>CPD_MakeWineMust</defName>
+		<label>make berry wine must</label>
+		<description>Make wine must from berries.</description>
+		<jobString>Making wine must.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>RawBerries</li>
+					</thingDefs>
+				</filter>
+				<count>25</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>RawBerries</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<CPD_WineMust>5</CPD_WineMust>
+		</products>
+	</RecipeDef>
+
+	<RecipeDef ParentName="PrecursorBase">
+		<defName>CPD_MakeGreenDragonPrecursor</defName>
+		<label>make smokeleaf tincture</label>
+		<description>Make smokeleaf tincture.</description>
+		<jobString>Making smokeleaf tincture.</jobString>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>CPD_Vodka</li>
+					</thingDefs>
+				</filter>
+				<count>5</count>
+			</li>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>SmokeleafLeaves</li>
+					</thingDefs>
+				</filter>
+				<count>20</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>CPD_Vodka</li>
+				<li>SmokeleafLeaves</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<CPD_GreenDragonPrecursor>5</CPD_GreenDragonPrecursor>
+		</products>
+	</RecipeDef>
+
+
+	<!-- ===== Crates ===== -->
+
+
+	<RecipeDef ParentName="MakeCrateBase">
+		<defName>CPD_MakeCrateBeer</defName>
+		<label>make beer crate</label>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>Beer</li>
+					</thingDefs>
+				</filter>
+				<count>75</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>Beer</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<CPD_BeerCrate>1</CPD_BeerCrate>
+		</products>
+	</RecipeDef>
+	<RecipeDef ParentName="UncrateBase">
+		<defName>CPD_EmptyCrateBeer</defName>
+		<label>empty beer crate</label>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>CPD_BeerCrate</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>CPD_BeerCrate</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<Beer>75</Beer>
+		</products>
+	</RecipeDef>
+
+	<RecipeDef ParentName="MakeCrateBase">
+		<defName>CPD_MakeCrateStout</defName>
+		<label>make stout crate</label>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>CPD_Stout</li>
+					</thingDefs>
+				</filter>
+				<count>75</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>CPD_Stout</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<CPD_StoutCrate>1</CPD_StoutCrate>
+		</products>
+	</RecipeDef>
+	<RecipeDef ParentName="UncrateBase">
+		<defName>CPD_EmptyCrateStout</defName>
+		<label>empty stout crate</label>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>CPD_StoutCrate</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>CPD_StoutCrate</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<CPD_Stout>75</CPD_Stout>
+		</products>
+	</RecipeDef>
+
+	<RecipeDef ParentName="MakeCrateBase">
+		<defName>CPD_MakeCrateNigori</defName>
+		<label>make nigori crate</label>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>CPD_Nigori</li>
+					</thingDefs>
+				</filter>
+				<count>75</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>CPD_Nigori</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<CPD_NigoriCrate>1</CPD_NigoriCrate>
+		</products>
+	</RecipeDef>
+	<RecipeDef ParentName="UncrateBase">
+		<defName>CPD_EmptyCrateNigori</defName>
+		<label>empty nigori crate</label>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>CPD_NigoriCrate</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>CPD_NigoriCrate</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<CPD_Nigori>75</CPD_Nigori>
+		</products>
+	</RecipeDef>
+
+	<RecipeDef ParentName="MakeCrateBase">
+		<defName>CPD_MakeCrateVodka</defName>
+		<label>make vodka crate</label>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>CPD_Vodka</li>
+					</thingDefs>
+				</filter>
+				<count>75</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>CPD_Vodka</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<CPD_VodkaCrate>1</CPD_VodkaCrate>
+		</products>
+	</RecipeDef>
+	<RecipeDef ParentName="UncrateBase">
+		<defName>CPD_EmptyCrateVodka</defName>
+		<label>empty vodka crate</label>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>CPD_VodkaCrate</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>CPD_VodkaCrate</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<CPD_Vodka>75</CPD_Vodka>
+		</products>
+	</RecipeDef>
+
+	<RecipeDef ParentName="MakeCrateBase">
+		<defName>CPD_MakeCrateWhiskey</defName>
+		<label>make whiskey crate</label>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>CPD_Whiskey</li>
+					</thingDefs>
+				</filter>
+				<count>75</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>CPD_Whiskey</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<CPD_WhiskeyCrate>1</CPD_WhiskeyCrate>
+		</products>
+	</RecipeDef>
+	<RecipeDef ParentName="UncrateBase">
+		<defName>CPD_EmptyCrateWhiskey</defName>
+		<label>empty whiskey crate</label>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>CPD_WhiskeyCrate</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>CPD_WhiskeyCrate</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<CPD_Whiskey>75</CPD_Whiskey>
+		</products>
+	</RecipeDef>
+
+	<RecipeDef ParentName="MakeCrateBase">
+		<defName>CPD_MakeCrateWine</defName>
+		<label>make wine crate</label>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>CPD_Wine</li>
+					</thingDefs>
+				</filter>
+				<count>75</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>CPD_Wine</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<CPD_WineCrate>1</CPD_WineCrate>
+		</products>
+	</RecipeDef>
+	<RecipeDef ParentName="UncrateBase">
+		<defName>CPD_EmptyCrateWine</defName>
+		<label>empty wine crate</label>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>CPD_WineCrate</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>CPD_WineCrate</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<CPD_Wine>75</CPD_Wine>
+		</products>
+	</RecipeDef>
+
+	<RecipeDef ParentName="MakeCrateBase">
+		<defName>CPD_MakeCrateGreenDragon</defName>
+		<label>make green dragon crate</label>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>CPD_GreenDragon</li>
+					</thingDefs>
+				</filter>
+				<count>75</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>CPD_GreenDragon</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<CPD_GreenDragonCrate>1</CPD_GreenDragonCrate>
+		</products>
+	</RecipeDef>
+	<RecipeDef ParentName="UncrateBase">
+		<defName>CPD_EmptyCrateGreenDragon</defName>
+		<label>empty green dragon crate</label>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>CPD_GreenDragonCrate</li>
+					</thingDefs>
+				</filter>
+				<count>1</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>CPD_GreenDragonCrate</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<CPD_GreenDragon>75</CPD_GreenDragon>
+		</products>
+	</RecipeDef>
+
+	<!--======== Other Recipes ========-->
+
+	<RecipeDef>
+		<defName>CPD_MakeEmptyCrate</defName>
+		<label>make empty alcohol crate</label>
+		<description>Make a crate for storing alcohol. Alcohol crate is destroyed once opened again.</description>
+		<jobString>Making empty crate</jobString>
+		<workAmount>500</workAmount>
+		<ingredients>
+			<li>
+				<filter>
+					<thingDefs>
+						<li>WoodLog</li>
+					</thingDefs>
+				</filter>
+				<count>5</count>
+			</li>
+		</ingredients>
+		<fixedIngredientFilter>
+			<thingDefs>
+				<li>WoodLog</li>
+			</thingDefs>
+		</fixedIngredientFilter>
+		<products>
+			<CPD_EmptyCrate>1</CPD_EmptyCrate>
+		</products>
+		<recipeUsers>
+			<li>CraftingSpot</li>
+		</recipeUsers>
+	</RecipeDef>
+
+</Defs>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	
+	<WorkGiverDef>
+		<defName>CPD_WorkGiver_TakeAlcoholOutOfAlcoholBarrel</defName>
+		<label>take alcohol out of alcohol barrels</label>
+		<giverClass>CuprosDrinksAlcohol.WorkGiver_TakeAlcoholOutOfAlcoholBarrel</giverClass>
+		<workType>Hauling</workType>
+		<verb>take alcohol</verb>
+		<gerund>taking alcohol from</gerund>
+		<priorityInType>26</priorityInType>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+	</WorkGiverDef>
+	
+	<WorkGiverDef>
+		<defName>CPD_WorkGiver_FillAlcoholBarrel</defName>
+		<label>fill alcohol barrels</label>
+		<giverClass>CuprosDrinksAlcohol.WorkGiver_FillAlcoholBarrel</giverClass>
+		<workType>Hauling</workType>
+		<verb>fill</verb>
+		<gerund>filling</gerund>
+		<priorityInType>25</priorityInType>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+	</WorkGiverDef>
+
+</Defs>

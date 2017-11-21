@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	
+<!-- If Vegetable Garden is installed, the fermenting barrels will all be joined on the same tab -->
+<!-- Either way, this reduces the clutter on the Production tab -->
+   <DesignationCategoryDef>
+    <defName>VGBrewing</defName>
+    <label>Brewing</label>
+    <description>A place for all your alcohol needs.</description>
+    <order>85</order>
+    <specialDesignatorClasses>
+      <li>Designator_Cancel</li>
+      <li>Designator_Deconstruct</li>
+    </specialDesignatorClasses>
+  </DesignationCategoryDef>  
+  
+</Defs>

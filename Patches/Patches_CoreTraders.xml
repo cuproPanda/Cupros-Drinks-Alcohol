@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+	<Operation Class="PatchOperationSequence">
+		<success>Always</success>
+		<operations>
+			<li Class="PatchOperationAdd">
+				<xpath>/DefPackage-TraderKindDef/TraderKindDef[defName = "Orbital_BulkGoods"]/stockGenerators</xpath>
+				<value>
+					<li Class="StockGenerator_Tag">
+						<tradeTag>CPD_BulkAlcohol</tradeTag>
+						<thingDefCountRange>
+							<min>-2</min>
+							<max>6</max>
+						</thingDefCountRange>
+						<countRange>
+							<min>1</min>
+							<max>5</max>
+						</countRange>
+					</li>
+				</value>
+			</li>
+		</operations>
+	</Operation>
+
+</Patch>

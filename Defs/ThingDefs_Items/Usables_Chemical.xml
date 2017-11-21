@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!--================== Bases ==================-->
+
+	<ThingDef Name="AlcoholResourceBase" ParentName="CPD_DrinkBase" Abstract="True">
+		<statBases>
+			<MarketValue>12</MarketValue>
+		</statBases>
+		<thingCategories>
+			<li>CPD_Alcohol</li>
+		</thingCategories>
+		<ingestible>
+			<foodType>Fluid, Processed, Liquor</foodType>
+			<nutrition>0.08</nutrition>
+			<joy>0.17</joy>
+			<nurseable>true</nurseable>
+			<drugCategory>Social</drugCategory>
+			<joyKind>Chemical</joyKind>
+			<ingestSound>Ingest_Beer</ingestSound>
+			<outcomeDoers>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>AlcoholHigh</hediffDef>
+					<severity>0.15</severity>
+					<toleranceChemical>Alcohol</toleranceChemical>
+				</li>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>AlcoholTolerance</hediffDef>
+					<severity>0.032</severity>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+		<comps>
+			<li Class="CompProperties_Drug">
+				<chemical>Alcohol</chemical>
+				<addictiveness>0.006</addictiveness>
+				<minToleranceToAddict>0.25</minToleranceToAddict>
+				<existingAddictionSeverityOffset>0.20</existingAddictionSeverityOffset>
+				<needLevelOffset>1</needLevelOffset>
+				<listOrder>10</listOrder>
+			</li>
+		</comps>
+	</ThingDef>
+	
+	<ThingDef Name="LiquorResourceBase" ParentName="AlcoholResourceBase" Abstract="True">
+		<stackLimit>75</stackLimit>
+		<statBases>
+			<MaxHitPoints>10</MaxHitPoints>
+			<Mass>0.1</Mass>
+		</statBases>
+		<ingestible>
+			<nutrition>0.02</nutrition>
+		</ingestible>
+	</ThingDef>
+
+
+	<!-- ========================== Drugs n Alcohol ============================== -->
+	<!-- === Alcohol === -->
+
+	<ThingDef ParentName="AlcoholResourceBase">
+		<defName>CPD_Nigori</defName>
+		<label>nigori</label>
+		<description>An alcoholic beverage made from rice.</description>
+		<graphicData>
+			<texPath>Cupro/Item/Usable/Nigori</texPath>
+		</graphicData>
+	</ThingDef>
+	
+	<ThingDef ParentName="AlcoholResourceBase">
+		<defName>CPD_Stout</defName>
+		<label>stout</label>
+		<description>An alcoholic beverage made from roasted hops.</description>
+		<graphicData>
+			<texPath>Things/Item/Drug/Beer</texPath>
+			<color>(128,128,128,255)</color>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef ParentName="LiquorResourceBase">
+		<defName>CPD_Vodka</defName>
+		<label>vodka</label>
+		<description>An alcoholic beverage made from potatoes.</description>
+		<graphicData>
+			<texPath>Cupro/Item/Usable/Vodka</texPath>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef ParentName="LiquorResourceBase">
+		<defName>CPD_Whiskey</defName>
+		<label>whiskey</label>
+		<description>An alcoholic beverage made from corn.</description>
+		<graphicData>
+			<texPath>Cupro/Item/Usable/Whiskey</texPath>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef ParentName="AlcoholResourceBase">
+		<defName>CPD_Wine</defName>
+		<label>wine</label>
+		<description>An alcoholic beverage made from berries.</description>
+		<graphicData>
+			<texPath>Cupro/Item/Usable/Wine</texPath>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef ParentName="LiquorResourceBase">
+		<defName>CPD_GreenDragon</defName>
+		<label>green dragon</label>
+		<description>An alcoholic beverage infused with smokeleaf.</description>
+		<graphicData>
+			<texPath>Cupro/Item/Usable/GreenDragon</texPath>
+		</graphicData>
+		<statBases>
+			<MarketValue>18</MarketValue>
+		</statBases>
+		<ingestible>
+			<drugCategory>Hard</drugCategory>
+			<outcomeDoers>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>SmokeleafHigh</hediffDef>
+					<severity>0.4</severity>
+					<toleranceChemical>Smokeleaf</toleranceChemical>
+				</li>
+				<li Class="IngestionOutcomeDoer_GiveHediff">
+					<hediffDef>SmokeleafTolerance</hediffDef>
+					<severity>0.03</severity>
+				</li>
+			</outcomeDoers>
+		</ingestible>
+		<comps>
+			<li Class="CompProperties_Drug">
+				<chemical>Smokeleaf</chemical>
+				<addictiveness>0.01</addictiveness>
+				<minToleranceToAddict>0.25</minToleranceToAddict>
+				<existingAddictionSeverityOffset>0.06</existingAddictionSeverityOffset>
+				<needLevelOffset>1</needLevelOffset>
+				<listOrder>20</listOrder>
+			</li>
+		</comps>
+	</ThingDef>
+
+</Defs>

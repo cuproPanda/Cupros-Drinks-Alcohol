@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<JoyGiverDef>
+		<defName>CPD_DrinkAlcohol</defName>
+		<giverClass>JoyGiver_TakeDrug</giverClass>
+		<baseChance>4</baseChance>
+		<thingDefs>
+			<li>CPD_Nigori</li>
+			<li>CPD_Whiskey</li>
+			<li>CPD_Wine</li>
+			<li>CPD_Vodka</li>
+			<li>CPD_Stout</li>
+		</thingDefs>
+		<joyKind>Chemical</joyKind>
+	</JoyGiverDef>
+
+</Defs>

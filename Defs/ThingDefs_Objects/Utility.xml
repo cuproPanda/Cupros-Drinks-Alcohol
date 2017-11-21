@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ThingDef Name="BarrelBase" ParentName="BuildingBase" Abstract="True">
+		<thingClass>CuprosDrinksAlcohol.Building_AlcoholBarrel</thingClass>
+		<graphicData>
+			<texPath>Cupro/Object/FermentingBarrel/FermentingBarrel</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<damageData>
+				<rect>(0.05,0.1,0.9,0.9)</rect>
+			</damageData>
+		</graphicData>
+		<minifiedDef>MinifiedFurniture</minifiedDef>
+		<altitudeLayer>Building</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<canOverlapZones>false</canOverlapZones>
+		<fillPercent>0.45</fillPercent>
+		<pathCost>60</pathCost>
+		<rotatable>true</rotatable>
+		<designationCategory>VGBrewing</designationCategory>
+		<statBases>
+			<WorkToBuild>600</WorkToBuild>
+			<Mass>10</Mass>
+			<MaxHitPoints>100</MaxHitPoints>
+			<Flammability>1.0</Flammability>
+		</statBases>
+		<costList>
+			<Steel>10</Steel>
+		</costList>
+		<costStuffCount>30</costStuffCount>
+		<stuffCategories>
+			<li>Woody</li>
+		</stuffCategories>
+		<useHitPoints>true</useHitPoints>
+		<size>(1,1)</size>
+		<tickerType>Rare</tickerType>
+		<comps>
+			<li Class="CompProperties_Forbiddable" />
+			<li Class="CompProperties_TemperatureRuinable">
+				<minSafeTemperature>-1</minSafeTemperature>
+				<maxSafeTemperature>32</maxSafeTemperature>
+				<progressPerDegreePerTick>0.00001</progressPerDegreePerTick>
+			</li>
+		</comps>
+		<researchPrerequisites>
+			<li>Brewing</li>
+		</researchPrerequisites>
+	</ThingDef>
+
+
+
+	<ThingDef ParentName="BarrelBase">
+		<defName>CPD_WhiskeyBarrel</defName>
+		<label>fermenting barrel, whiskey</label>
+		<description>A barrel for fermenting corn wort into whiskey.</description>
+		<comps>
+			<li Class="CuprosDrinksAlcohol.CompProperties_AlcoholBarrel">
+				<ingredient>CPD_CornWort</ingredient>
+				<product>CPD_Whiskey</product>
+				<fermentationDays>15</fermentationDays>
+				<productMultiplier>3</productMultiplier>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="BarrelBase">
+		<defName>CPD_StoutBarrel</defName>
+		<label>fermenting barrel, stout</label>
+		<description>A barrel for fermenting stout wort into stout.</description>
+		<comps>
+			<li Class="CuprosDrinksAlcohol.CompProperties_AlcoholBarrel">
+				<ingredient>CPD_StoutWort</ingredient>
+				<product>CPD_Stout</product>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="BarrelBase">
+		<defName>CPD_NigoriBarrel</defName>
+		<label>fermenting barrel, nigori</label>
+		<description>A barrel for fermenting rice mash into nigori.</description>
+		<comps>
+			<li Class="CuprosDrinksAlcohol.CompProperties_AlcoholBarrel">
+				<ingredient>CPD_RiceMash</ingredient>
+				<product>CPD_Nigori</product>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="BarrelBase">
+		<defName>CPD_VodkaBarrel</defName>
+		<label>fermenting barrel, vodka</label>
+		<description>A barrel for fermenting potatoes into undistilled vodka.</description>
+		<comps>
+			<li Class="CuprosDrinksAlcohol.CompProperties_AlcoholBarrel">
+				<ingredient>RawPotatoes</ingredient>
+				<product>CPD_VodkaPrecursor</product>
+				<fermentationDays>15</fermentationDays>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="BarrelBase">
+		<defName>CPD_WineBarrel</defName>
+		<label>fermenting barrel, wine</label>
+		<description>A barrel for fermenting wine must into wine.</description>
+		<comps>
+			<li Class="CuprosDrinksAlcohol.CompProperties_AlcoholBarrel">
+				<ingredient>CPD_WineMust</ingredient>
+				<product>CPD_Wine</product>
+				<fermentationDays>15</fermentationDays>
+				<productMultiplier>2</productMultiplier>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<ThingDef ParentName="BarrelBase">
+		<defName>CPD_GreenDragonBarrel</defName>
+		<label>aging barrel, green dragon</label>
+		<description>A barrel for fermenting smokeleaf tincture into green dragon.</description>
+		<comps>
+			<li Class="CuprosDrinksAlcohol.CompProperties_AlcoholBarrel">
+				<ingredient>CPD_GreenDragonPrecursor</ingredient>
+				<product>CPD_GreenDragon</product>
+				<fermentationDays>6</fermentationDays>
+				<productMultiplier>3</productMultiplier>
+			</li>
+		</comps>
+	</ThingDef>
+
+</Defs>

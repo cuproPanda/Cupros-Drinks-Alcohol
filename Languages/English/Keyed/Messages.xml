@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<!-- Alcohol Barrel -->
+	<CPD_ContainsIngredient>Contains {0} / {1} {2}.</CPD_ContainsIngredient>
+	<CPD_ContainsAlcohol>Contains {0} / {1} {2}.</CPD_ContainsAlcohol>
+	<CPD_NoIngredient>need ingredients</CPD_NoIngredient>
+
+</LanguageData>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ThingCategoryDef>
+		<defName>CPD_Alcohol</defName>
+		<label>alcohol</label>
+		<parent>CPD_Drinks</parent>
+		<iconPath>Cupro/Item/Usable/Whiskey/Whiskey_a</iconPath>
+	</ThingCategoryDef>
+
+</Defs>

@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+
+	<ThingDef Name="CrateBase" ParentName="ResourceBase" Abstract="True">
+		<graphicData>
+			<graphicClass>Graphic_StackCount</graphicClass>
+			<drawSize>(2,2)</drawSize>
+		</graphicData>
+		<resourceReadoutPriority>First</resourceReadoutPriority>
+		<statBases>
+			<MaxHitPoints>75</MaxHitPoints>
+			<MarketValue>600</MarketValue>
+			<Flammability>1.0</Flammability>
+			<Mass>17</Mass>
+		</statBases>
+		<stackLimit>2</stackLimit>
+		<thingCategories>
+			<li>Manufactured</li>
+		</thingCategories>
+		<tradeTags>
+			<li>CPD_BulkAlcohol</li>
+		</tradeTags>
+	</ThingDef>
+	
+	<ThingDef Name="AlcoholPrecursorBase" ParentName="ResourceBase" Abstract="True">
+		<graphicData>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<rotatable>false</rotatable>
+		<stackLimit>25</stackLimit>
+		<statBases>
+			<MarketValue>2.5</MarketValue>
+			<DeteriorationRate>1</DeteriorationRate>
+			<Mass>0.8</Mass>
+		</statBases>
+		<thingCategories>
+			<li>Manufactured</li>
+		</thingCategories>
+		<tickerType>Rare</tickerType>
+		<comps>
+			<li Class="CompProperties_Rottable">
+				<daysToRotStart>5</daysToRotStart>
+				<rotDestroys>true</rotDestroys>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<!-- ========== Alcohol Precursors ========== -->
+	
+	<ThingDef ParentName="AlcoholPrecursorBase">
+		<defName>CPD_StoutWort</defName>
+		<label>stout wort</label>
+		<description>Wort made from roasted hops. This substance needs to ferment in a fermenting barrel before it becomes drinkable stout.</description>
+		<graphicData>
+			<texPath>Cupro/Item/Material/StoutWort</texPath>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef ParentName="AlcoholPrecursorBase">
+		<defName>CPD_CornWort</defName>
+		<label>corn wort</label>
+		<description>Wort made from corn. This substance needs to ferment in a fermenting barrel before it becomes drinkable whiskey.</description>
+		<graphicData>
+			<texPath>Cupro/Item/Material/CornWort</texPath>
+		</graphicData>
+	</ThingDef>
+	
+	<ThingDef ParentName="AlcoholPrecursorBase">
+		<defName>CPD_RiceMash</defName>
+		<label>rice mash</label>
+		<description>Milled, soaked, and cooked rice. This substance needs to ferment in a fermenting barrel before it becomes drinkable nigori.</description>
+		<graphicData>
+			<texPath>Cupro/Item/Material/RiceMash</texPath>
+		</graphicData>
+	</ThingDef>
+	
+	<ThingDef ParentName="AlcoholPrecursorBase">
+		<defName>CPD_VodkaPrecursor</defName>
+		<label>undistilled vodka</label>
+		<description>Fermented vodka. This substance needs to be filtered and distilled at a brewery before it becomes drinkable vodka.</description>
+		<graphicData>
+			<texPath>Cupro/Item/Material/VodkaPrecursor</texPath>
+		</graphicData>
+	</ThingDef>
+	
+	<ThingDef ParentName="AlcoholPrecursorBase">
+		<defName>CPD_WineMust</defName>
+		<label>wine must</label>
+		<description>Pressed fruit juice. This substance needs to ferment in a fermenting barrel before it becomes drinkable wine.</description>
+		<graphicData>
+			<texPath>Cupro/Item/Material/WineMust</texPath>
+		</graphicData>
+	</ThingDef>
+	
+	<ThingDef ParentName="AlcoholPrecursorBase">
+		<defName>CPD_GreenDragonPrecursor</defName>
+		<label>smokeleaf tincture</label>
+		<description>A tincture of smokeleaf and vodka. This substance needs to age in a fermenting barrel before it becomes drinkable green dragon.</description>
+		<graphicData>
+			<texPath>Cupro/Item/Material/GreenDragonPrecursor</texPath>
+		</graphicData>
+	</ThingDef>
+	
+	<!-- ========== Alcohol Crates ========== -->
+
+	<ThingDef ParentName="ResourceBase">
+		<defName>CPD_EmptyCrate</defName>
+		<label>empty crate</label>
+		<description>A crate which can hold many bottles of alcohol for storage or sale.</description>
+		<graphicData>
+			<texPath>Cupro/Item/Material/Crate/EmptyCrate</texPath>
+			<graphicClass>Graphic_StackCount</graphicClass>
+			<drawSize>(2,2)</drawSize>
+		</graphicData>
+		<statBases>
+			<MaxHitPoints>75</MaxHitPoints>
+			<Flammability>1.0</Flammability>
+			<MarketValue>3</MarketValue>
+			<Mass>2</Mass>
+		</statBases>
+		<stackLimit>2</stackLimit>
+		<thingCategories>
+			<li>Manufactured</li>
+		</thingCategories>
+	</ThingDef>
+	
+	<ThingDef ParentName="CrateBase">
+		<defName>CPD_BeerCrate</defName>
+		<label>crate of beer</label>
+		<description>A crate containing 50 bottles of beer.</description>
+		<graphicData>
+			<texPath>Cupro/Item/Material/Crate/BeerCrate</texPath>
+		</graphicData>
+	</ThingDef>
+	
+	<ThingDef ParentName="CrateBase">
+		<defName>CPD_StoutCrate</defName>
+		<label>crate of stout</label>
+		<description>A crate containing 50 bottles of stout.</description>
+		<graphicData>
+			<texPath>Cupro/Item/Material/Crate/StoutCrate</texPath>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef ParentName="CrateBase">
+		<defName>CPD_NigoriCrate</defName>
+		<label>crate of nigori</label>
+		<description>A crate containing 50 bottles of nigori.</description>
+		<graphicData>
+			<texPath>Cupro/Item/Material/Crate/NigoriCrate</texPath>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef ParentName="CrateBase">
+		<defName>CPD_VodkaCrate</defName>
+		<label>crate of vodka</label>
+		<description>A crate containing 150 bottles of vodka.</description>
+		<graphicData>
+			<texPath>Cupro/Item/Material/Crate/VodkaCrate</texPath>
+		</graphicData>
+		<statBases>
+			<MarketValue>1800</MarketValue>
+		</statBases>
+	</ThingDef>
+
+	<ThingDef ParentName="CrateBase">
+		<defName>CPD_WhiskeyCrate</defName>
+		<label>crate of whiskey</label>
+		<description>A crate containing 150 bottles of whiskey.</description>
+		<graphicData>
+			<texPath>Cupro/Item/Material/Crate/WhiskeyCrate</texPath>
+		</graphicData>
+		<statBases>
+			<MarketValue>1800</MarketValue>
+		</statBases>
+	</ThingDef>
+
+	<ThingDef ParentName="CrateBase">
+		<defName>CPD_WineCrate</defName>
+		<label>crate of wine</label>
+		<description>A crate containing 50 bottles of wine.</description>
+		<graphicData>
+			<texPath>Cupro/Item/Material/Crate/WineCrate</texPath>
+		</graphicData>
+	</ThingDef>
+
+	<ThingDef ParentName="CrateBase">
+		<defName>CPD_GreenDragonCrate</defName>
+		<description>A crate containing 150 bottles of a smokeleaf tincture.</description>
+		<label>crate of green dragon</label>
+		<graphicData>
+			<texPath>Cupro/Item/Material/Crate/GreenDragonCrate</texPath>
+		</graphicData>
+		<statBases>
+			<MarketValue>2700</MarketValue>
+		</statBases>
+	</ThingDef>
+
+</Defs>
+
+
+
+
+
+

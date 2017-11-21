@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<JobDef>
+		<defName>CPD_FillAlcoholBarrel</defName>
+		<driverClass>CuprosDrinksAlcohol.JobDriver_FillAlcoholBarrel</driverClass>
+		<reportString>filling TargetA.</reportString>
+	</JobDef>
+	
+	<JobDef>
+		<defName>CPD_TakeAlcoholOutOfAlcoholBarrel</defName>
+		<driverClass>CuprosDrinksAlcohol.JobDriver_TakeAlcoholOutOfAlcoholBarrel</driverClass>
+		<reportString>taking alcohol out of TargetA.</reportString>
+	</JobDef>
+
+</Defs>
