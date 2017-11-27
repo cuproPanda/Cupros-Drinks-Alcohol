@@ -26,7 +26,7 @@ namespace CuprosDrinksAlcohol {
 
 
 		public override bool TryMakePreToilReservations() {
-			return pawn.Reserve(Barrel, job) && pawn.Reserve(Alcohol, job);
+			return pawn.Reserve(Barrel, job);
 		}
 
 
